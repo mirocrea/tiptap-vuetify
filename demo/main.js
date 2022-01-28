@@ -1,9 +1,21 @@
 import Vue from 'vue'
 import Vuetify, {
   // Components used in demo
-  VApp, VContent, VContainer,
+  VApp,
+  VContent,
+  VContainer,
   // Components used in this package
-  VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VTooltip, VToolbar
+  VDialog,
+  VCard,
+  VCardTitle,
+  VCardText,
+  VCardActions,
+  VBtn,
+  VSpacer,
+  VIcon,
+  VTextField,
+  VTooltip,
+  VToolbar
 } from 'vuetify/lib'
 import Router from 'vue-router'
 import 'vuetify/dist/vuetify.min.css'
@@ -20,7 +32,7 @@ import { MAIN_MODULE } from './config'
 
 const vuetify = new Vuetify({
   lang: {
-    current: 'en' // en | es | fr | pl | ru | uk | ptbr | tr | he | nl | ja | de | ko | zhHans | fa | sv | cs | it | el
+    current: 'ja' // en | es | fr | pl | ru | uk | ptbr | tr | he | nl | ja | de | ko | zhHans | fa | sv | cs | it | el
   }
 })
 

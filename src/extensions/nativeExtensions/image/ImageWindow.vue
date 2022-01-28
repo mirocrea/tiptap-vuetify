@@ -6,6 +6,20 @@
           {{ $i18n.getMsg('extensions.Image.window.title') }}
         </span>
       </v-card-title>
+      <!-- <v-tabs fixed-tabs>
+        <template v-for="(imageTab, i) in imageTabs">
+          <v-tab :key="'tab-' + i" :href="'#tab-' + i">
+            {{ imageTab.name }}
+          </v-tab>
+          <v-tab-item :key="'tab-item-' + i" :value="'tab-' + i"> -->
+      <component
+        :is="imageTab.component"
+        class="pa-4"
+        @select-file="onFileSelect"
+      />
+      <!-- </v-tab-item>
+        </template>
+      </v-tabs> -->
       <v-card-text>
         <v-expand-transition>
           <div v-show="previewSources.length">
@@ -16,32 +30,18 @@
                 cols="4"
               >
                 <v-img :src="source.src" :alt="source.alt" class="text-right">
-                  <v-btn icon small dark @click="removeSource(source)">
+                  <!-- <v-btn icon small dark @click="removeSource(source)">
                     <v-icon small>
                       close
                     </v-icon>
-                  </v-btn>
+                  </v-btn> -->
                 </v-img>
-                <v-text-field v-model="source.alt" label="Alt Text" />
+                <!-- <v-text-field v-model="source.alt" label="Alt Text" /> -->
               </v-col>
             </v-row>
           </div>
         </v-expand-transition>
       </v-card-text>
-      <v-tabs fixed-tabs>
-        <template v-for="(imageTab, i) in imageTabs">
-          <v-tab :key="'tab-' + i" :href="'#tab-' + i">
-            {{ imageTab.name }}
-          </v-tab>
-          <v-tab-item :key="'tab-item-' + i" :value="'tab-' + i">
-            <component
-              :is="imageTab.component"
-              class="pa-4"
-              @select-file="onFileSelect"
-            />
-          </v-tab-item>
-        </template>
-      </v-tabs>
       <v-card-actions>
         <v-row no-gutters justify="center" align="center">
           <v-spacer />
@@ -49,14 +49,14 @@
             <v-btn
               :disabled="isDisabled"
               rounded
-              class="blue text-white"
+              class="blue white--text"
               @click="apply"
             >
               {{ $i18n.getMsg('extensions.Image.window.buttons.apply') }}
             </v-btn>
           </v-col>
           <v-col cols="3">
-            <v-btn rounded class="red text-white" @click="close">
+            <v-btn rounded class="red white--text" @click="close">
               {{ $i18n.getMsg('extensions.Image.window.buttons.close') }}
             </v-btn>
           </v-col>
