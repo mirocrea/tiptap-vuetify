@@ -1,51 +1,46 @@
 <template>
-  <v-dialog
-    :value="value"
-    max-width="500px"
-  >
+  <v-dialog :value="value" max-width="500px">
     <v-card>
       <v-card-title>
         <span class="headline">
-          Tables
+          表
         </span>
-
-        <v-spacer />
-
+        <!-- <v-spacer />
         <v-btn
           icon
           @click="close"
         >
           <v-icon>{{ COMMON_ICONS.close[$tiptapVuetify.iconsGroup] }}</v-icon>
-        </v-btn>
+        </v-btn> -->
       </v-card-title>
       <v-card-text>
-        <v-text-field
-          v-model="form.rowsCount"
-          label="Rows count"
-        />
-        <v-text-field
-          v-model="form.colsCount"
-          label="Cols count"
-        />
-        <v-checkbox
-          v-model="form.withHeaderRow"
-          label="With header row"
-        />
+        <v-row no-gutters justify="center" align="center">
+          <v-col cols="4" class="text-center">
+            <v-text-field v-model="form.rowsCount" outlined label="行数" />
+          </v-col>
+          <v-col cols="4" class="text-center">
+            <v-text-field v-model="form.colsCount" outlined label="列数" />
+          </v-col>
+          <v-col cols="4" class="text-center">
+            <v-checkbox v-model="form.withHeaderRow" label="ヘッダあり" />
+          </v-col>
+        </v-row>
       </v-card-text>
       <v-card-actions>
-        <v-btn
-          text
-          @click="close"
-        >
-          Close
-        </v-btn>
-
-        <v-btn
-          text
-          @click="apply"
-        >
-          Apply
-        </v-btn>
+        <v-row no-gutters justify="center" align="center">
+          <v-spacer />
+          <v-col cols="3">
+            <v-btn rounded class="blue white--text" @click="apply">
+              確定
+            </v-btn>
+          </v-col>
+          <v-col cols="3">
+            <v-btn rounded class="red white--text" @click="close">
+              閉じる
+            </v-btn>
+          </v-col>
+          <v-spacer />
+        </v-row>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -81,32 +76,45 @@ export const PROPS = {
 }
 
 @Component({
-  components: { VRow, VCol, VDialog, VCard, VCardTitle, VCardText, VCardActions, VBtn, VSpacer, VIcon, VTextField, VCheckbox }
+  components: {
+    VRow,
+    VCol,
+    VDialog,
+    VCard,
+    VCardTitle,
+    VCardText,
+    VCardActions,
+    VBtn,
+    VSpacer,
+    VIcon,
+    VTextField,
+    VCheckbox
+  }
 })
 export default class TableWindow extends mixins(I18nMixin) {
   @Prop({
     type: Boolean,
     default: false
   })
-  readonly [PROPS.VALUE]: boolean
+  readonly [PROPS.VALUE]: boolean;
 
   @Prop({
     type: String,
     required: true
   })
-  readonly [PROPS.NATIVE_EXTENSION_NAME]: string
+  readonly [PROPS.NATIVE_EXTENSION_NAME]: string;
 
   @Prop({
     type: Object,
     required: true
   })
-  readonly [PROPS.CONTEXT]: any
+  readonly [PROPS.CONTEXT]: any;
 
   @Prop({
     type: Object,
     required: true
   })
-  readonly [PROPS.EDITOR]: any
+  readonly [PROPS.EDITOR]: any;
 
   @Prop({
     type: Boolean,
@@ -122,7 +130,7 @@ export default class TableWindow extends mixins(I18nMixin) {
     withHeaderRow: false
   }
 
-  apply () {
+  apply() {
     this[PROPS.CONTEXT].commands.createTable({
       rowsCount: this.form.rowsCount,
       colsCount: this.form.colsCount,
@@ -132,7 +140,7 @@ export default class TableWindow extends mixins(I18nMixin) {
     this[PROPS.EDITOR].focus()
   }
 
-  close () {
+  close() {
     this.$destroy()
     this.$el.parentNode!.removeChild(this.$el)
   }

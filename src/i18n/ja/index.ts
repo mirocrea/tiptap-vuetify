@@ -104,14 +104,14 @@ export default {
         }
       },
       window: {
-        title: 'リンクの編集',
+        title: 'リンク',
         form: {
-          hrefLabel: 'リンク'
+          hrefLabel: 'URL'
         },
         buttons: {
           close: '閉じる',
           remove: '削除',
-          apply: '適用'
+          apply: '確定'
         }
       }
     },
@@ -120,13 +120,13 @@ export default {
         tooltip: '画像'
       },
       window: {
-        title: '画像追加',
+        title: '画像',
         form: {
           sourceLink: '画像URL'
         },
         buttons: {
           close: '閉じる',
-          apply: '適用'
+          apply: '確定'
         }
       }
     }
