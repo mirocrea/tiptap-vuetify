@@ -14,7 +14,7 @@ module.exports = {
     'eslint:recommended',
     'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:vue/recommended',
+    'plugin:vue/recommended'
   ],
   // plugins: [
   //   '@typescript-eslint'
@@ -26,32 +26,47 @@ module.exports = {
   },
   rules: {
     // работает через @typescript-eslint/indent
-    'indent': OFF,
+    indent: OFF,
     // не правильно работает для конструктора typescript: constructor (public text) {}
     'no-useless-constructor': OFF,
     'no-console': OFF,
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: {
+          max: 10
+        },
+        multiline: {
+          max: 10
+        }
+      }
+    ],
+    'space-before-function-paren': ['error', 'never'],
 
     '@typescript-eslint/explicit-member-accessibility': 'no-public',
     '@typescript-eslint/no-use-before-define': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
     '@typescript-eslint/indent': [ERROR, 2],
-    '@typescript-eslint/member-delimiter-style': [ERROR, {
-      "multiline": {
-        "delimiter": "none",
-        "requireLast": false
-      },
-      "singleline": {
-        "delimiter": "semi",
-        "requireLast": false
-      },
-    }],
+    '@typescript-eslint/member-delimiter-style': [
+      ERROR,
+      {
+        multiline: {
+          delimiter: 'none',
+          requireLast: false
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false
+        }
+      }
+    ],
     '@typescript-eslint/no-parameter-properties': OFF,
     // allows "require" from Node.js
     '@typescript-eslint/no-var-requires': OFF,
     // allows 'any' type
     '@typescript-eslint/no-explicit-any': OFF,
     // allows non null assertion
-    '@typescript-eslint/no-non-null-assertion': OFF,
+    '@typescript-eslint/no-non-null-assertion': OFF
     // tslint config integration for eslint
     // '@typescript-eslint/tslint/config': [WARNING, {
     //   'lintFile': './tslint.json', // path to tslint.json of your project

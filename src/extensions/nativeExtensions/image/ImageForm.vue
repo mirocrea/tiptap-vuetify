@@ -33,7 +33,7 @@ export default class ImageForm extends mixins(I18nMixin) {
     alt: null
   }
 
-  addImage () {
+  addImage() {
     this.$emit(EVENTS.SELECT_FILE, {
       src: this.form.src,
       alt: this.form.alt
@@ -44,6 +44,4 @@ export default class ImageForm extends mixins(I18nMixin) {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
