@@ -60,6 +60,7 @@
               {{ $i18n.getMsg('extensions.Image.window.buttons.close') }}
             </v-btn>
           </v-col>
+          <v-spacer />
         </v-row>
       </v-card-actions>
     </v-card>
