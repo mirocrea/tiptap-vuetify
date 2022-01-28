@@ -1,6 +1,6 @@
 <template>
   <v-dialog :value="value" max-width="500px">
-    <v-card>
+    <v-card rounded="xl">
       <v-card-title>
         <span class="headline">
           表
@@ -15,12 +15,15 @@
       </v-card-title>
       <v-card-text>
         <v-row no-gutters justify="center" align="center">
-          <v-col cols="4" class="text-center">
-            <v-text-field v-model="form.rowsCount" outlined label="行数" />
+          <v-col cols="6" class="text-center">
+            <v-text-field v-model="form.rowsCount" filled label="行数" />
           </v-col>
-          <v-col cols="4" class="text-center">
-            <v-text-field v-model="form.colsCount" outlined label="列数" />
+          <v-col cols="6" class="text-center">
+            <v-text-field v-model="form.colsCount" filled label="列数" />
           </v-col>
+        </v-row>
+        <v-row no-gutters justify="center" align="center">
+          <v-spacer />
           <v-col cols="4" class="text-center">
             <v-checkbox v-model="form.withHeaderRow" label="ヘッダあり" />
           </v-col>
@@ -30,12 +33,17 @@
         <v-row no-gutters justify="center" align="center">
           <v-spacer />
           <v-col cols="3">
-            <v-btn rounded class="blue white--text" @click="apply">
+            <v-btn
+              rounded
+              class="blue white--text"
+              width="100px"
+              @click="apply"
+            >
               確定
             </v-btn>
           </v-col>
           <v-col cols="3">
-            <v-btn rounded class="red white--text" @click="close">
+            <v-btn rounded class="red white--text" width="100px" @click="close">
               閉じる
             </v-btn>
           </v-col>

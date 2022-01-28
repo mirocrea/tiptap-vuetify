@@ -50,13 +50,14 @@
               :disabled="isDisabled"
               rounded
               class="blue white--text"
+              width="100px"
               @click="apply"
             >
               {{ $i18n.getMsg('extensions.Image.window.buttons.apply') }}
             </v-btn>
           </v-col>
           <v-col cols="3">
-            <v-btn rounded class="red white--text" @click="close">
+            <v-btn rounded class="red white--text" width="100px" @click="close">
               {{ $i18n.getMsg('extensions.Image.window.buttons.close') }}
             </v-btn>
           </v-col>

@@ -1,6 +1,6 @@
 <template>
   <v-dialog :value="value" max-width="500px">
-    <v-card>
+    <v-card rounded="xl">
       <v-card-title>
         <span class="headline">
           {{ $i18n.getMsg('extensions.Link.window.title') }}
@@ -17,7 +17,7 @@
       <v-card-text>
         <v-text-field
           v-model="form.href"
-          outlined
+          filled
           :label="$i18n.getMsg('extensions.Link.window.form.hrefLabel')"
         />
         <!--
@@ -34,7 +34,9 @@
             <v-btn
               :disabled="isDisabled"
               :color="isRemove ? 'error' : 'primary'"
-              text
+              rounded
+              class="white--text"
+              width="100px"
               @click="apply"
             >
               {{
@@ -46,7 +48,7 @@
             </v-btn>
           </v-col>
           <v-col cols="3">
-            <v-btn text @click="close">
+            <v-btn rounded class="red white--text" width="100px" @click="close">
               {{ $i18n.getMsg('extensions.Link.window.buttons.close') }}
             </v-btn>
           </v-col>
