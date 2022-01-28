@@ -18,6 +18,7 @@
         <v-text-field
           v-model="form.href"
           filled
+          rounded
           :label="$i18n.getMsg('extensions.Link.window.form.hrefLabel')"
         />
         <!--
@@ -33,18 +34,12 @@
           <v-col cols="3">
             <v-btn
               :disabled="isDisabled"
-              :color="isRemove ? 'error' : 'primary'"
               rounded
-              class="white--text"
+              class="blue white--text"
               width="100px"
               @click="apply"
             >
-              {{
-                $i18n.getMsg(
-                  'extensions.Link.window.buttons.' +
-                    (isRemove ? 'remove' : 'apply')
-                )
-              }}
+              {{ $i18n.getMsg('extensions.Link.window.buttons.apply') }}
             </v-btn>
           </v-col>
           <v-col cols="3">
@@ -63,6 +58,8 @@
 import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
 import {
+  VRow,
+  VCol,
   VDialog,
   VCard,
   VCardTitle,
@@ -86,6 +83,8 @@ export const PROPS = {
 
 @Component({
   components: {
+    VRow,
+    VCol,
     VDialog,
     VCard,
     VCardTitle,

@@ -14,19 +14,29 @@
         </v-btn> -->
       </v-card-title>
       <v-card-text>
-        <v-row no-gutters justify="center" align="center">
+        <v-row justify="center" align="center">
           <v-col cols="6" class="text-center">
-            <v-text-field v-model="form.rowsCount" filled label="行数" />
+            <v-text-field
+              v-model="form.rowsCount"
+              filled
+              rounded
+              label="行数"
+            />
           </v-col>
           <v-col cols="6" class="text-center">
-            <v-text-field v-model="form.colsCount" filled label="列数" />
+            <v-text-field
+              v-model="form.colsCount"
+              filled
+              rounded
+              label="列数"
+            />
           </v-col>
         </v-row>
         <v-row no-gutters justify="center" align="center">
-          <v-spacer />
           <v-col cols="4" class="text-center">
             <v-checkbox v-model="form.withHeaderRow" label="ヘッダあり" />
           </v-col>
+          <v-spacer />
         </v-row>
       </v-card-text>
       <v-card-actions>
