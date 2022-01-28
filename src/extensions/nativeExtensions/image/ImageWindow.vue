@@ -13,7 +13,7 @@
           </v-tab>
           <v-tab-item :key="'tab-item-' + i" :value="'tab-' + i"> -->
       <component
-        :is="imageTab.component"
+        :is="imageTabs[0].component"
         class="pa-4"
         @select-file="onFileSelect"
       />
