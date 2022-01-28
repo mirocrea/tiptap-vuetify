@@ -15,3 +15,4 @@ yalc.lock
 *.njsproj
 *.sln
 *.sw*
+.history/

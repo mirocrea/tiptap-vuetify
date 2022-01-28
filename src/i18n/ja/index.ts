@@ -120,7 +120,7 @@ export default {
         tooltip: '画像'
       },
       window: {
-        title: '画像を追加する',
+        title: '画像追加',
         form: {
           sourceLink: '画像URL'
         },
